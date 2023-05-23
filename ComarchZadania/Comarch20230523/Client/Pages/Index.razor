@@ -12,3 +12,18 @@ Ostatnia wielokrotność trójki to: @LastMultimpleOfThree;
 
 <Counter OnMultipleOfThree="@UpdateLastOfMultipleOfThree" />
 
+<br />
+<br />
+
+@* kaskada *@
+
+<input type="checkbox" /> First option
+<br />
+<input type="checkbox" /> Second option
+<br />
+
+<CascadingValue Name="FirstOption" Value="true">
+    <FirstLevelComponent />
+</CascadingValue>
+
+
