@@ -2,8 +2,19 @@
     <h2>To jest mój pierwszy komponent. Aktualna wartość to: @CurrentCounterValue</h2>
 </div>
 
+<button @onclick="UpdateCurrentCounterValue" >My Counter</button>
+
 @code
 {
     [Parameter]
     public int CurrentCounterValue { get; set; }
+
+    [Parameter]
+    public EventCallback<int> CurrentCounterValueChanged { get; set; }
+
+    private async Task UpdateCurrentCounterValue()
+    {
+        CurrentCounterValue++;
+        await CurrentCounterValueChanged.InvokeAsync(CurrentCounterValue);
+    }
 }

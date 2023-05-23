@@ -8,7 +8,7 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
-<MyFirstComponent CurrentCounterValue="@currentCount" />
+<MyFirstComponent @bind-CurrentCounterValue="@currentCount" />
 
 
 @code {
