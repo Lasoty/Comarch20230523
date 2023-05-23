@@ -17,13 +17,15 @@ Ostatnia wielokrotność trójki to: @LastMultimpleOfThree;
 
 @* kaskada *@
 
-<input type="checkbox" /> First option
+<input @bind-value=firstOptionValue type="checkbox" /> First option
 <br />
-<input type="checkbox" /> Second option
+<input @bind-value=secondOptionValue type="checkbox" /> Second option
 <br />
 
-<CascadingValue Name="FirstOption" Value="true">
-    <FirstLevelComponent />
+<CascadingValue Name="FirstOption" Value="@firstOptionValue">
+    <CascadingValue Name="SecondOption" Value="@secondOptionValue">
+        <FirstLevelComponent />
+    </CascadingValue>
 </CascadingValue>
 
 

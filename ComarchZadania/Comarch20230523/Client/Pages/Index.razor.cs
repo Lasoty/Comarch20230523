@@ -6,6 +6,9 @@ namespace Comarch20230523.Client.Pages
     {
         int LastMultimpleOfThree = 0;
 
+        bool firstOptionValue = false;
+        bool secondOptionValue = false;
+
         private void UpdateLastOfMultipleOfThree(int value)
         {
             LastMultimpleOfThree = value;
