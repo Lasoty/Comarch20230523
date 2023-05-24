@@ -1,0 +1,91 @@
+﻿@page "/img-service"
+@page "/img-service/{*imgUrl}"
+
+
+<h3>ImgShowPage</h3>
+
+@if (!hasImage)
+{
+    if (hasError)
+    {
+        <div class="row">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Błąd!</strong> Podany adres jest nieprawidłowy.
+                <button type="button" class="btn-close" @onclick="HideError" aria-label="Close"></button>
+            </div>
+        </div>
+    }
+
+    <div class="row">
+        <label class="col-auto col-form-label">Adres url</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" @bind-value="ImgUrl">
+        </div>
+        <div class="col-auto">
+            <button @onclick="OnOpenClick" class="btn btn-primary mb-3">Otwórz</button>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-4">
+            <img src="@ImgUrl" width="500" />
+        </div>
+        <div class="col-7">
+            <h4><b>Adres obrazka:</b> @ImgUrl</h4>
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn-primary" @onclick="SaveImage">Zapisz</button>
+        </div>
+
+    </div>
+}
+
+@code {
+    bool hasImage = false;
+    bool hasError = false;
+
+    string imgSrc = "";
+
+    [Parameter]
+    public string ImgUrl { get; set; }
+
+    [Inject]
+    private IJSRuntime jsRun { get; set; }
+
+    protected override void OnInitialized()
+    {
+
+        if (Uri.TryCreate(ImgUrl, UriKind.Absolute, out Uri? uri))
+        {
+            hasImage = true;
+            imgSrc = ImgUrl;
+        }
+        base.OnInitialized();
+    }
+
+    private async Task OnOpenClick()
+    {
+        if (Uri.TryCreate(ImgUrl, UriKind.Absolute, out Uri? uri))
+        {
+            hasImage = true;
+            imgSrc = ImgUrl;
+        }
+        else
+        {
+            hasError = true;
+        }
+    }
+
+    private void HideError()
+    {
+        hasError = false;
+    }
+
+
+    private async Task SaveImage()
+    {
+        HttpClient client = new HttpClient();
+    }
+}

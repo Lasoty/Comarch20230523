@@ -1,0 +1,61 @@
+﻿@page "/add-person"
+@using Comarch20230523.Shared;
+
+<h3>AddPerson</h3>
+
+@if(hasError)
+{
+    <div class="alert alert-danger" role="alert">
+        A simple danger alert—check it out!
+    </div>
+}
+
+<EditForm Model="@person" OnValidSubmit="@SavePerson">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+
+    <div>
+        <InputText class="form-control" @bind-Value="@person.Name" placeholder="Nazwa użytkownika" />
+        <ValidationMessage For="@(() => person.Name)" />
+    </div>
+
+    <div>
+        <InputNumber class="form-control" @bind-Value="@person.Age" placeholder="Twój wiek" />
+        <ValidationMessage For="@(() => person.Age)" />
+    </div>
+
+    <div>
+        <InputText class="form-control" @bind-Value="@person.Email" placeholder="Email użytkownika" />
+        <ValidationMessage For="@(() => person.Email)" />
+    </div>
+
+    <div>
+        <InputText class="form-control" @bind-Value="@person.ConfirmEmail" placeholder="Potwierdź email" />
+        <ValidationMessage For="@(() => person.ConfirmEmail)" />
+    </div>
+
+    <div>
+        <InputText class="form-control" @bind-Value="@person.Password" placeholder="Hasło" />
+        <ValidationMessage For="@(() => person.Password)" />
+    </div>
+
+    <div>
+        <InputTextArea class="form-control" @bind-Value="@person.Address" placeholder="Twój adres" />
+        <ValidationMessage For="@(() => person.Address)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Zapisz</button>
+
+</EditForm>
+
+@code {
+    PersonDto person = new PersonDto();
+    bool hasError = false;
+
+    private async Task SavePerson()
+    {
+        hasError = true;
+
+    }
+}
