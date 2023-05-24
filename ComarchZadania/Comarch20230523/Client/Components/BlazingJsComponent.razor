@@ -1,0 +1,12 @@
+﻿@inject IJSRuntime jsRun;
+
+<div>
+    <button class="btn btn-secondary" @onclick="InvitationToTheParty">Zaproś na impreze</button>
+</div>
+
+@code {
+    private async Task InvitationToTheParty()
+    {
+        bool isConfirmed = await jsRun.InvokeAsync<bool>("confirm", "Czy chcesz mnie zaprosić na imprezę.");
+    }
+}
