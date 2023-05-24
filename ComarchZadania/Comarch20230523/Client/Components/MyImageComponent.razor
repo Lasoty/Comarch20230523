@@ -1,0 +1,25 @@
+﻿<img alt="@alt" src="@Src" @attributes=AllOtherAttributes />
+
+@code {
+    private string src;
+
+    [Parameter]
+    public string Src
+    {
+        get
+        {
+            return src;
+        }
+        set
+        {
+            src = value;
+            StateHasChanged();
+        }
+    }
+
+    [Parameter]
+    public string alt { get; set; }
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> AllOtherAttributes { get; set; }
+}
