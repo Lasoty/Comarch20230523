@@ -13,16 +13,6 @@ namespace Comarch20230523
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
 
-            builder.Services.AddCors(opt =>
-            {
-                opt.AddDefaultPolicy(builder =>
-                {
-                    builder.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader();
-                });
-            });
-
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
