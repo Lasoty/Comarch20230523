@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Identity.Web;
+
 namespace BibliotekarzOctf.Server
 {
     public class Program
@@ -5,6 +8,9 @@ namespace BibliotekarzOctf.Server
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
 
             // Add services to the container.
 
@@ -28,6 +34,7 @@ namespace BibliotekarzOctf.Server
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseRouting();
