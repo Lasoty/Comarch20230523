@@ -5,6 +5,10 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotekarzOctf.Client", "BibliotekarzOctf.Client\BibliotekarzOctf.Client\BibliotekarzOctf.Client.csproj", "{C150543C-2EC5-46A7-ABF4-EAF2DA1E9801}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotekarzOctf.Shared", "BibliotekarzOctf.Shared\BibliotekarzOctf.Shared.csproj", "{163748FE-62A5-4EF5-9794-12F142C9B4A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotekarzOctf.Server", "BibliotekarzOctf.Server\BibliotekarzOctf.Server.csproj", "{31154984-1B45-40C0-A541-231D08FB9817}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{C150543C-2EC5-46A7-ABF4-EAF2DA1E9801}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C150543C-2EC5-46A7-ABF4-EAF2DA1E9801}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C150543C-2EC5-46A7-ABF4-EAF2DA1E9801}.Release|Any CPU.Build.0 = Release|Any CPU
+		{163748FE-62A5-4EF5-9794-12F142C9B4A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{163748FE-62A5-4EF5-9794-12F142C9B4A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{163748FE-62A5-4EF5-9794-12F142C9B4A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{163748FE-62A5-4EF5-9794-12F142C9B4A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31154984-1B45-40C0-A541-231D08FB9817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31154984-1B45-40C0-A541-231D08FB9817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31154984-1B45-40C0-A541-231D08FB9817}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31154984-1B45-40C0-A541-231D08FB9817}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

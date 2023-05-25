@@ -25,4 +25,8 @@
 		<PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.1.*" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\..\BibliotekarzOctf.Shared\BibliotekarzOctf.Shared.csproj" />
+	</ItemGroup>
+
 </Project>
