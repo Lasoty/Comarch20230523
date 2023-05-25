@@ -1,16 +1,29 @@
-﻿<Blazorise.ThemeProvider Theme="@theme">
-    <Router AppAssembly="typeof(App).Assembly">
-        <Found Context="routeData">
-            <RouteView RouteData="routeData" DefaultLayout="typeof(BibliotekarzOctf.Client.Layouts.MainLayout)" />
-        </Found>
-        <NotFound>
-            <p>Sorry, there's nothing at this address.</p>
-        </NotFound>
-    </Router>
-    <MessageProvider />
-    <NotificationProvider />
-    <PageProgressProvider />
-</Blazorise.ThemeProvider>
+﻿<CascadingAuthenticationState>
+    <Blazorise.ThemeProvider Theme="@theme">
+        <Router AppAssembly="typeof(App).Assembly">
+            <Found Context="routeData">
+                <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(BibliotekarzOctf.Client.Layouts.MainLayout)">
+                    <NotAuthorized>
+                        @if (context.User.Identity?.IsAuthenticated != true)
+                        {
+                            <RedirectToLogin />
+                        }
+                        else
+                        {
+                            <p role="alert">Nie masz dostępu do tej strony.</p>
+                        }
+                    </NotAuthorized>
+                </AuthorizeRouteView>
+            </Found>
+            <NotFound>
+                <p>Sorry, there's nothing at this address.</p>
+            </NotFound>
+        </Router>
+        <MessageProvider />
+        <NotificationProvider />
+        <PageProgressProvider />
+    </Blazorise.ThemeProvider>
+</CascadingAuthenticationState>
 @code {
     private Theme theme = new()
         {

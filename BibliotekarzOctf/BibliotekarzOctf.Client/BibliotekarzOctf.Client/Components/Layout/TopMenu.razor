@@ -1,4 +1,5 @@
-﻿@using Blazorise.Localization
+﻿@using BibliotekarzOctf.Client.Shared
+@using Blazorise.Localization
 
 <Bar @bind-Visible="@topbarVisible" Breakpoint="Breakpoint.Desktop" Background="Background.Primary" ThemeContrast="ThemeContrast.Light">
     <BarBrand>
@@ -64,6 +65,9 @@
 
         </BarStart>
         <BarEnd>
+            <BarItem>
+                <LoginDisplay />
+            </BarItem>
             <BarItem>
                 <BarDropdown RightAligned>
                     <BarDropdownToggle><Icon Name="IconName.Language" /></BarDropdownToggle>
