@@ -34,10 +34,10 @@ namespace BibliotekarzOctf.Server
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();
 
+            app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseRouting();
             app.MapRazorPages();
             app.MapControllers();
             app.MapFallbackToFile("index.html");

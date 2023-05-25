@@ -1,4 +1,5 @@
 ﻿using BibliotekarzOctf.Client;
+using BibliotekarzOctf.Client.Services;
 using Blazorise;
 using Blazorise.Bootstrap5;
 using Blazorise.Icons.FontAwesome;
@@ -25,6 +26,7 @@ builder.Services.AddMsalAuthentication(options =>
 var temp = builder.Configuration.GetSection("AzureAd").GetValue<string>("ClientId");
 
 AddBlazorise(builder.Services);
+builder.Services.AddClientServices();
 
 await builder.Build().RunAsync();
 
